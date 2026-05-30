@@ -65,3 +65,41 @@
 
 
 ## 1, 環境構築
+
+### 確認したこと
+
+* MongoDB 側は `localhost:27017 > jalc > restapi` を前提にしており、`卒業研究_谷川明英` 側で独自の別登録実装は確認できなかった。
+  `4プログラム/jalc-to-solr.ipynb` は既存の `jalc.restapi` を読む前提であり、MongoDB 登録処理そのものは `jalc` 側の notebook 群を使っていると見てよい。
+* JaLC データの年版について、`卒業研究_谷川明英` 側の資料では「JaLC のメタデータ」としか書かれておらず、MongoDB に入れる年版は固定されていなかった。
+  そのため、2024 年版 JaLC データを `jalc.restapi` に入れている現状は実装前提として問題ないと判断した。
+  ただし論文本文にある登録件数や再現値と完全一致するとは限らない。
+* Solr 側の `text_ja` は谷川さん独自実装ではなく、Solr 9.7.0 の標準 configset に含まれる fieldType であることを確認した。
+  `tanigawa_jalc` の `managed-schema.xml` にある `text_ja` も、標準 `_default` の日本語アナライザ設定と同等だった。
+  そのため、今回の環境構築では Solr の日本語アナライザを独自に追加実装する必要はない。
+
+### `jalc` 側との比較
+
+* Solr 登録本体である `jalc/jalc-to-solr.ipynb` と `卒業研究_谷川明英/4プログラム/jalc-to-solr.ipynb` を比較したところ、登録ロジック・helper 関数・登録フィールド・copy field は一致していた。
+* 差分は実質 core 名だけだった。
+  `jalc` 側は Python の接続先が `tanigawa_jalc`、`卒業研究_谷川明英` 側は `jalc` を向いていた。
+* MongoDB 登録についても、`卒業研究_谷川明英` 側に別の整形処理は見当たらず、`jalc` 側の `restapi` 登録結果を利用する前提で矛盾しなかった。
+* 以上から、今回は `tanigawa_jalc` を流用して進める方針にした。
+  「論文どおりの core 名に完全一致させる」ことより、「登録ロジックとスキーマ構成が同じであること」を優先した。
+
+### 実施した修正
+
+* notebook 側の Solr 参照先を `http://localhost:8983/solr/tanigawa_jalc` に揃えた。
+* `jalc-to-solr.ipynb` の raw セルにある schema API の送信先も `tanigawa_jalc` に合わせた。
+* 主な修正対象は以下。
+  * `4プログラム/evaluation_experiment.ipynb`
+  * `4プログラム/preliminary_experiment.ipynb`
+  * `4プログラム/execute_proposed_method.ipynb`
+  * `4プログラム/search_solr.ipynb`
+  * `4プログラム/jalc-to-solr.ipynb`
+  * `4プログラム/aditional_experiment.ipynb`
+  * `4プログラム/get_token.ipynb`
+
+### 補足
+
+* まだ `solr/jalc` の文字列が残っている箇所は、保存済み実行出力のログだけであり、現在の notebook ソース参照先ではない。
+* したがって、以後の実行では `tanigawa_jalc` を参照する前提で進めてよい。
