@@ -18,6 +18,7 @@ env/
 7参考文献/
 8プロジェクト関連/
 9その他/
+9その他/*
 
 # Common large / non-source binary documents
 *.pdf
@@ -28,5 +29,7 @@ env/
 
 !6プログラムとデータの説明文書/
 !6プログラムとデータの説明文書/*.pdf
-
+!9その他/
+!9その他/濱田修正ドキュメント/
+!9その他/濱田修正ドキュメント/**
 # Keep source notebooks / scripts / lightweight text data under 4プログラム and 5データ
