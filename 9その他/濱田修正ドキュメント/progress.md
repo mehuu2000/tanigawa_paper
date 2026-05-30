@@ -103,3 +103,271 @@
 
 * まだ `solr/jalc` の文字列が残っている箇所は、保存済み実行出力のログだけであり、現在の notebook ソース参照先ではない。
 * したがって、以後の実行では `tanigawa_jalc` を参照する前提で進めてよい。
+
+
+## 2, 誤植ありの既存評価を再現
+
+### 方針
+
+* `evaluation_experiment.ipynb` は `Run All` ではなく、`test_set` を切り替えながら必要セルだけ実行する。
+* 理由は、同一 notebook 内に「正例用セル」「負例用セル」「確認用セル」「追加分析セル」が混在しているため。
+* 特に `Cell 4` の `test_set` は手動で対象ファイルを切り替える前提になっている。
+
+### 使用 notebook
+
+* `4プログラム/evaluation_experiment.ipynb`
+
+### 事前実行
+
+* `Cell 2`
+  * import
+  * `wakati`, `generate_query`, `pysolr` の読み込み
+  * Solr 接続
+* これは notebook 起動後、最初に 1 回だけ実行すればよい。
+
+### 入力ファイル
+
+#### 正例（誤植あり）
+
+* `../5データ/5-2評価実験用データ/5-2-1参考文献文字列（実在）/positive_reference_ipsj_eval.txt`
+* `../5データ/5-2評価実験用データ/5-2-1参考文献文字列（実在）/positive_reference_jsai_eval.txt`
+* `../5データ/5-2評価実験用データ/5-2-1参考文献文字列（実在）/positive_reference_lsj_eval.txt`
+
+#### 負例
+
+* `../5データ/5-2評価実験用データ/5-2-2参考文献文字列（架空）/negative_reference_ipsj_eval.txt`
+* `../5データ/5-2評価実験用データ/5-2-2参考文献文字列（架空）/negative_reference_jsai_eval.txt`
+* `../5データ/5-2評価実験用データ/5-2-2参考文献文字列（架空）/negative_reference_lsj_eval.txt`
+
+### 実行セル
+
+#### 正例評価で使うセル
+
+* `Cell 12`
+  * DOI リストの読み込み
+* `Cell 15`
+  * BM25（非正規化）
+* `Cell 24`
+  * BM25（正規化）
+* `Cell 35`
+  * Reference Coverage（sim_r）
+* `Cell 41`
+  * Candidate Coverage（sim_p）
+* `Cell 46`
+  * Mutual Coverage
+
+#### 負例評価で使うセル
+
+* `Cell 17`
+  * BM25（非正規化）
+* `Cell 29`
+  * BM25（正規化）
+* `Cell 38`
+  * Reference Coverage（sim_r）
+* `Cell 43`
+  * Candidate Coverage（sim_p）
+* `Cell 48`
+  * Mutual Coverage
+
+#### 今回の再現確認では必須ではないセル
+
+* `Cell 6`
+* `Cell 8`
+* `Cell 10`
+* `Cell 20` 以降の単語頻度・追加分析用セル
+
+### 実行手順
+
+#### 1. 初期化
+
+* `Cell 2` を実行する。
+* `Cell 12` を実行する。
+
+#### 2. 正例（誤植あり）を 3 スタイル分評価
+
+##### 2-1. IPSJ スタイル
+
+* `Cell 4` の `test_set` を `positive_reference_ipsj_eval.txt` に変更して実行する。
+* 次のセルを順に実行する。
+  * `Cell 15`
+  * `Cell 24`
+  * `Cell 35`
+  * `Cell 41`
+  * `Cell 46`
+* 上記セルの実行が終わったタイミングで、下の `#### 正例 IPSJ` にログを追記する。
+  * `実行日時`
+  * `使用ファイル`
+    * `positive_reference_ipsj_eval.txt`
+    * 必要なら `doi_list.txt` も併記
+  * `実行セル`
+    * `Cell 4, 15, 24, 35, 41, 46`
+  * `主な出力`
+    * 各手法の件数サマリ
+    * 必要なら代表的な詳細出力
+  * `備考`
+    * エラー有無、論文値との差、気づいた点など
+
+##### 2-2. JSAI スタイル
+
+* `Cell 4` の `test_set` を `positive_reference_jsai_eval.txt` に変更して実行する。
+* 次のセルを順に実行する。
+  * `Cell 15`
+  * `Cell 24`
+  * `Cell 35`
+  * `Cell 41`
+  * `Cell 46`
+* 上記セルの実行が終わったタイミングで、下の `#### 正例 JSAI` にログを追記する。
+  * `実行日時`
+  * `使用ファイル`
+    * `positive_reference_jsai_eval.txt`
+    * 必要なら `doi_list.txt` も併記
+  * `実行セル`
+    * `Cell 4, 15, 24, 35, 41, 46`
+  * `主な出力`
+    * 各手法の件数サマリ
+    * 必要なら代表的な詳細出力
+  * `備考`
+    * エラー有無、論文値との差、気づいた点など
+
+##### 2-3. LSJ スタイル
+
+* `Cell 4` の `test_set` を `positive_reference_lsj_eval.txt` に変更して実行する。
+* 次のセルを順に実行する。
+  * `Cell 15`
+  * `Cell 24`
+  * `Cell 35`
+  * `Cell 41`
+  * `Cell 46`
+* 上記セルの実行が終わったタイミングで、下の `#### 正例 LSJ` にログを追記する。
+  * `実行日時`
+  * `使用ファイル`
+    * `positive_reference_lsj_eval.txt`
+    * 必要なら `doi_list.txt` も併記
+  * `実行セル`
+    * `Cell 4, 15, 24, 35, 41, 46`
+  * `主な出力`
+    * 各手法の件数サマリ
+    * 必要なら代表的な詳細出力
+  * `備考`
+    * エラー有無、論文値との差、気づいた点など
+
+#### 3. 負例を 3 スタイル分評価
+
+##### 3-1. IPSJ スタイル
+
+* `Cell 4` の `test_set` を `negative_reference_ipsj_eval.txt` に変更して実行する。
+* 次のセルを順に実行する。
+  * `Cell 17`
+  * `Cell 29`
+  * `Cell 38`
+  * `Cell 43`
+  * `Cell 48`
+* 上記セルの実行が終わったタイミングで、下の `#### 負例 IPSJ` にログを追記する。
+  * `実行日時`
+  * `使用ファイル`
+    * `negative_reference_ipsj_eval.txt`
+  * `実行セル`
+    * `Cell 4, 17, 29, 38, 43, 48`
+  * `主な出力`
+    * 各手法の `True Negative` / `False Positive`
+    * 必要なら代表的な詳細出力
+  * `備考`
+    * エラー有無、論文値との差、気づいた点など
+
+##### 3-2. JSAI スタイル
+
+* `Cell 4` の `test_set` を `negative_reference_jsai_eval.txt` に変更して実行する。
+* 次のセルを順に実行する。
+  * `Cell 17`
+  * `Cell 29`
+  * `Cell 38`
+  * `Cell 43`
+  * `Cell 48`
+* 上記セルの実行が終わったタイミングで、下の `#### 負例 JSAI` にログを追記する。
+  * `実行日時`
+  * `使用ファイル`
+    * `negative_reference_jsai_eval.txt`
+  * `実行セル`
+    * `Cell 4, 17, 29, 38, 43, 48`
+  * `主な出力`
+    * 各手法の `True Negative` / `False Positive`
+    * 必要なら代表的な詳細出力
+  * `備考`
+    * エラー有無、論文値との差、気づいた点など
+
+##### 3-3. LSJ スタイル
+
+* `Cell 4` の `test_set` を `negative_reference_lsj_eval.txt` に変更して実行する。
+* 次のセルを順に実行する。
+  * `Cell 17`
+  * `Cell 29`
+  * `Cell 38`
+  * `Cell 43`
+  * `Cell 48`
+* 上記セルの実行が終わったタイミングで、下の `#### 負例 LSJ` にログを追記する。
+  * `実行日時`
+  * `使用ファイル`
+    * `negative_reference_lsj_eval.txt`
+  * `実行セル`
+    * `Cell 4, 17, 29, 38, 43, 48`
+  * `主な出力`
+    * 各手法の `True Negative` / `False Positive`
+    * 必要なら代表的な詳細出力
+  * `備考`
+    * エラー有無、論文値との差、気づいた点など
+
+### 注意点
+
+* `Cell 4` の `test_set` を切り替えたら、そのたびに `Cell 4` 自体を再実行する。
+* 正例用セルと負例用セルを混ぜて `Run All` しない。
+* notebook 内に保存済み出力が残っていても、再実行時は現在の `tanigawa_jalc` と手元データで結果が上書きされる。
+
+### 実行ログ記録欄
+
+#### 正例 IPSJ
+
+* 実行日時:
+* 使用ファイル:
+* 実行セル:
+* 主な出力:
+* 備考:
+
+#### 正例 JSAI
+
+* 実行日時:
+* 使用ファイル:
+* 実行セル:
+* 主な出力:
+* 備考:
+
+#### 正例 LSJ
+
+* 実行日時:
+* 使用ファイル:
+* 実行セル:
+* 主な出力:
+* 備考:
+
+#### 負例 IPSJ
+
+* 実行日時:
+* 使用ファイル:
+* 実行セル:
+* 主な出力:
+* 備考:
+
+#### 負例 JSAI
+
+* 実行日時:
+* 使用ファイル:
+* 実行セル:
+* 主な出力:
+* 備考:
+
+#### 負例 LSJ
+
+* 実行日時:
+* 使用ファイル:
+* 実行セル:
+* 主な出力:
+* 備考:
