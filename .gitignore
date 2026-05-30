@@ -1,0 +1,32 @@
+# macOS / Python / Jupyter
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# Local logs / runtime artifacts
+*.log
+*.tmp
+
+# Do not publish thesis materials, meeting slides, setup docs, or third-party references
+1卒業論文/
+2卒研概要/
+3卒研発表*/
+7参考文献/
+8プロジェクト関連/
+9その他/
+
+# Common large / non-source binary documents
+*.pdf
+*.pptx
+*.doc
+*.docx
+*.xlsx
+
+!6プログラムとデータの説明文書/
+!6プログラムとデータの説明文書/*.pdf
+
+# Keep source notebooks / scripts / lightweight text data under 4プログラム and 5データ

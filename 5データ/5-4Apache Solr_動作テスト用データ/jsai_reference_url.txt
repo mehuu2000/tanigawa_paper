@@ -1,0 +1,5 @@
+[茶筅] 茶筅，http://chasen.aist-nara.ac.jp/
+[吉田 97] 吉田仙，亀井剛次，横尾真，大黒毅，船越要，服部文夫：潜在的なコミュニティの可視化，第6回マルチエージェントと協調計算ワークショップ (MACC'97)オンライン予稿集，\verb+http://www.kecl.ntt.co.jp/msrg/macc97/sen.html+, 1997.
+[EDR] (株)日本電子化辞書研究所: EDR電子化辞書，http://www.iijnet.or.jp/edr/.
+[nittei] ``X用スケジュール管理＆カレンダー'', http://member.nifty.ne.jp/seto-yoneji/nittei.html,
+[茶筌] ``茶筌'' 奈良先端科学技術大学院大学 情報科学研究科自然言語処理学講座 http://chasen.aist-nara.ac.jp/
