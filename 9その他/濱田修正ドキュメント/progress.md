@@ -733,3 +733,68 @@
 * `create_references_none_typo.ipynb` を用いて誤植なし正例データの生成を実行した。
 * 出力先は `5-2-1参考文献文字列_誤植なし（実在）` とし、既存の誤植ありデータは上書きしない構成を維持した。
 * これにより、Step4 で `evaluation_experiment.ipynb` の正例入力だけを誤植なし版へ切り替えて評価できる状態になった。
+
+### Step4 誤植なし正例データで再評価
+
+#### 正例 IPSJ(誤植なし)
+* 実行日時: 6/2, 1:00
+* 使用ファイル:positive_reference_jsai_eval_none_typo.txt
+* 総実行セル：Cell 4, 15, 24, 35, 41, 46
+
+* 実行セル: Cell15(BM25)
+* 主な出力: case1 = 854件，case2 =8件，case3 = 1件，case4 = 0件.   case1 = 853件，case2 =9件，case3 = 1件，case4 = 0件
+
+* 実行セル: Cell24(BM25長さ補正)
+* 主な出力: case1 = 838件，case2 =24件，case3 = 1件，case4 = 0件
+
+* 実行セル: Cell35(RC)
+* 主な出力: case1 = 857件，case2 =6件，case3 = 0件，case4 = 0件
+
+* 実行セル: Cell 41(CC)
+* 主な出力: case1 = 836件，case2 =27件，case3 = 0件，case4 = 0件
+
+* 実行セル: Cell 46(MC)
+* 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
+* 備考:
+
+#### 正例 JSAI(誤植なし)
+* 実行日時: 6/2, 1:00
+* 使用ファイル: positive_reference_ipsj_eval_none_typo.txt
+* 総実行セル: Cell 4, 15, 24, 35, 41, 46
+
+* 実行セル: Cell 15
+* 主な出力: case1 = 842件，case2 =20件，case3 = 0件，case4 = 1件
+
+* 実行セル: Cell24
+* 主な出力: case1 = 823件，case2 =39件，case3 = 1件，case4 = 0件
+
+* 実行セル: Cell 35
+* 主な出力: case1 = 853件，case2 =9件，case3 = 1件，case4 = 0件
+
+* 実行セル: Cell 41
+* 主な出力: case1 = 841件，case2 =22件，case3 = 0件，case4 = 0件
+
+* 実行セル: Cell 46
+* 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
+* 備考:
+
+#### 正例 LSJ(誤植なし)
+* 実行日時:6/1 1:00
+* 使用ファイル: positive_reference_lsj_eval_none_typo.txt
+総実行セル: Cell 4, 15, 24, 35, 41, 46
+
+* 実行セル:  Cell 15
+* 主な出力: case1 = 853件，case2 =9件，case3 = 1件，case4 = 0件
+
+* 実行セル: Cell24
+* 主な出力: case1 = 860件，case2 =2件，case3 = 1件，case4 = 0件
+
+* 実行セル:  Cell 35
+* 主な出力: case1 = 859件，case2 =4件，case3 = 0件，case4 = 0件
+
+* 実行セル: Cell 41
+* 主な出力: case1 = 838件，case2 =25件，case3 = 0件，case4 = 0件
+
+* 実行セル: Cell 46
+* 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
+* 備考:
