@@ -371,7 +371,7 @@
 * 総実行セル：Cell 4, 15, 24, 35, 41, 46
 
 * 実行セル: Cell15(BM25)
-* 主な出力: case1 = 854件，case2 =8件，case3 = 1件，case4 = 0件
+* 主な出力: case1 = 854件，case2 =8件，case3 = 1件，case4 = 0件.   case1 = 853件，case2 =9件，case3 = 1件，case4 = 0件
 
 * 実行セル: Cell24(BM25長さ補正)
 * 主な出力: case1 = 838件，case2 =24件，case3 = 1件，case4 = 0件
@@ -512,26 +512,68 @@
 
 #### 負例 IPSJ
 
-* 実行日時:
-* 使用ファイル:
-* 実行セル:
-* 主な出力:
+* 実行日時: 6/1, 19:30
+* 使用ファイル:negative_reference_ipsj_eval.txt
+* 総実行セル：Cell 4, 17, 29, 38, 43, 48
+
+* 実行セル: Cell17(BM25)
+* 主な出力: True negative : 182 | False positive : 636
+
+* 実行セル: Cell29(BM25長さ補正)
+* 主な出力: True Negative = 300件 | False Positive = 518件
+
+* 実行セル: Cell38(RC)
+* 主な出力: True negative : 811 | False positive : 7
+
+* 実行セル: Cell 43(CC)
+* 主な出力: True negative : 812 | False positive : 6
+
+* 実行セル: Cell 48(MC)
+* 主な出力: True negative : 817 | False positive : 1
 * 備考:
 
 #### 負例 JSAI
 
-* 実行日時:
-* 使用ファイル:
-* 実行セル:
-* 主な出力:
+* 実行日時: 6/1, 19:30
+* 使用ファイル:negative_reference_jsai_eval.txt
+* 総実行セル：Cell 4, 17, 29, 38, 43, 48
+
+* 実行セル: Cell17(BM25)
+* 主な出力: True negative : 272 | False positive : 546
+
+* 実行セル: Cell29(BM25長さ補正)
+* 主な出力: True Negative = 264件 | False Positive = 554件
+
+* 実行セル: Cell38(RC)
+* 主な出力: True negative : 808 | False positive : 10
+
+* 実行セル: Cell 43(CC)
+* 主な出力: True negative : 812 | False positive : 6
+
+* 実行セル: Cell 48(MC)
+* 主な出力: True negative : 817 | False positive : 1
 * 備考:
 
 #### 負例 LSJ
 
-* 実行日時:
-* 使用ファイル:
-* 実行セル:
-* 主な出力:
+* 実行日時: 6/1, 19:30
+* 使用ファイル:negative_reference_lsj_eval.txt
+* 総実行セル：Cell 4, 17, 29, 38, 43, 48
+
+* 実行セル: Cell17(BM25)
+* 主な出力: True negative : 156 | False positive : 662
+
+* 実行セル: Cell29(BM25長さ補正)
+* 主な出力: True Negative = 227件 | False Positive = 591件
+
+* 実行セル: Cell38(RC)
+* 主な出力: True negative : 807 | False positive : 11
+
+* 実行セル: Cell 43(CC)
+* 主な出力: True negative : 812 | False positive : 6
+
+* 実行セル: Cell 48(MC)
+* 主な出力: True negative : 817 | False positive : 1
 * 備考:
 
 ### Step2 実行結果まとめ
