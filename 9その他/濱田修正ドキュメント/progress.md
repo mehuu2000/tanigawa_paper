@@ -742,16 +742,16 @@
 * 総実行セル：Cell 4, 15, 24, 35, 41, 46
 
 * 実行セル: Cell15(BM25)
-* 主な出力: case1 = 854件，case2 =8件，case3 = 1件，case4 = 0件.   case1 = 853件，case2 =9件，case3 = 1件，case4 = 0件
+* 主な出力: case1 = 854件，case2 =8件，case3 = 1件，case4 = 0件
 
 * 実行セル: Cell24(BM25長さ補正)
-* 主な出力: case1 = 838件，case2 =24件，case3 = 1件，case4 = 0件
+* 主な出力: case1 = 846件，case2 =16件，case3 = 1件，case4 = 0件
 
 * 実行セル: Cell35(RC)
-* 主な出力: case1 = 857件，case2 =6件，case3 = 0件，case4 = 0件
+* 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
 
 * 実行セル: Cell 41(CC)
-* 主な出力: case1 = 836件，case2 =27件，case3 = 0件，case4 = 0件
+* 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
 
 * 実行セル: Cell 46(MC)
 * 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
@@ -763,16 +763,16 @@
 * 総実行セル: Cell 4, 15, 24, 35, 41, 46
 
 * 実行セル: Cell 15
-* 主な出力: case1 = 842件，case2 =20件，case3 = 0件，case4 = 1件
+* 主な出力: case1 = 846件，case2 =17件，case3 = 0件，case4 = 0件
 
 * 実行セル: Cell24
-* 主な出力: case1 = 823件，case2 =39件，case3 = 1件，case4 = 0件
+* 主な出力: case1 = 835件，case2 =28件，case3 = 0件，case4 = 0件
 
 * 実行セル: Cell 35
-* 主な出力: case1 = 853件，case2 =9件，case3 = 1件，case4 = 0件
+* 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
 
 * 実行セル: Cell 41
-* 主な出力: case1 = 841件，case2 =22件，case3 = 0件，case4 = 0件
+* 主な出力: case1 = case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
 
 * 実行セル: Cell 46
 * 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
@@ -784,16 +784,16 @@
 総実行セル: Cell 4, 15, 24, 35, 41, 46
 
 * 実行セル:  Cell 15
-* 主な出力: case1 = 853件，case2 =9件，case3 = 1件，case4 = 0件
+* 主な出力: case1 = 854件，case2 =8件，case3 = 1件，case4 = 0件
 
 * 実行セル: Cell24
-* 主な出力: case1 = 860件，case2 =2件，case3 = 1件，case4 = 0件
+* 主な出力: case1 = 862件，case2 =0件，case3 = 1件，case4 = 0件
 
 * 実行セル:  Cell 35
-* 主な出力: case1 = 859件，case2 =4件，case3 = 0件，case4 = 0件
+* 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
 
 * 実行セル: Cell 41
-* 主な出力: case1 = 838件，case2 =25件，case3 = 0件，case4 = 0件
+* 主な出力: case1 = 862件，case2 =1件，case3 = 0件，case4 = 0件
 
 * 実行セル: Cell 46
 * 主な出力: case1 = 863件，case2 =0件，case3 = 0件，case4 = 0件
