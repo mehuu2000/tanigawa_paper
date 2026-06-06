@@ -1,0 +1,21 @@
+"""Shared experiment configuration for notebooks under 4プログラム."""
+
+# Current values
+SOLR_DOC_COUNT = 5917286
+SOLR_CORE_NAME = "jalc"
+
+BM25_THRESHOLD = 38.9212
+BM25_NORMALIZED_THRESHOLD = 1.8641
+RC_THRESHOLD = 0.9375
+CC_THRESHOLD = 0.8730
+MC_THRESHOLD = 0.8623
+
+# Previous values
+# 2026-06-06 initial shared config values (閾値更新前)
+# SOLR_DOC_COUNT = 5917286
+# SOLR_CORE_NAME = "jalc"
+# BM25_THRESHOLD = 38.9212
+# BM25_NORMALIZED_THRESHOLD = 1.8641
+# RC_THRESHOLD = 0.9375
+# CC_THRESHOLD = 0.8730
+# MC_THRESHOLD = 0.8623
