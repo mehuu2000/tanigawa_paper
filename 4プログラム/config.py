@@ -1,7 +1,7 @@
 """Shared experiment configuration for notebooks under 4プログラム."""
 
 # Current values
-SOLR_DOC_COUNT = 5917286
+SOLR_DOC_COUNT = 3617035
 SOLR_CORE_NAME = "jalc"
 
 BM25_THRESHOLD = 38.9212
