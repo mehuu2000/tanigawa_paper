@@ -6,6 +6,7 @@ __pycache__/
 .venv/
 venv/
 env/
+.serena/
 
 # Local logs / runtime artifacts
 *.log
