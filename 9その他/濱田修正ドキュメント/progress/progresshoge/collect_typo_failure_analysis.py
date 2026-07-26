@@ -1,4 +1,4 @@
-"""Collect read-only Solr results for the typo failure analysis.
+"""Collect read-only Solr results for the six-field typo failure analysis.
 
 This script only sends GET requests to Solr's ``select`` endpoint. It never
 calls update, delete, commit, reload, or other mutating endpoints.
@@ -53,8 +53,9 @@ FIELDS = [
 ]
 POSITIVE_RC_FIELDS = ["creator", "title", "journal", "issued", "volume_issue", "page_range"]
 POSITIVE_CC_FIELDS = ["first_author", "title", "journal", "issued", "volume_issue", "page_range"]
-NEGATIVE_RC_FIELDS = ["creator", "title", "journal", "issued"]
-NEGATIVE_CC_FIELDS = ["first_author", "title", "journal", "issued"]
+NEGATIVE_RC_FIELDS = POSITIVE_RC_FIELDS
+NEGATIVE_CC_FIELDS = POSITIVE_CC_FIELDS
+ANALYSIS_TAG = "six_field"
 THRESHOLDS = {
     "rc": config.RC_THRESHOLD,
     "cc": config.CC_THRESHOLD,
@@ -317,7 +318,7 @@ def collect_positive_style(
     workers: int,
     force: bool,
 ) -> list[dict]:
-    output_path = SCRIPT_DIR / f"analysis_positive_{style}.jsonl"
+    output_path = SCRIPT_DIR / f"analysis_{ANALYSIS_TAG}_positive_{style}.jsonl"
     if output_path.exists() and not force:
         existing = read_lines(output_path)
         if len(existing) == len(dois):
@@ -383,7 +384,7 @@ def collect_positive_style(
 
 
 def collect_negative_style(style: str, files: dict, workers: int, force: bool) -> list[dict]:
-    output_path = SCRIPT_DIR / f"analysis_negative_{style}.jsonl"
+    output_path = SCRIPT_DIR / f"analysis_{ANALYSIS_TAG}_negative_{style}.jsonl"
     references = read_lines(files["negative_dir"] / f"negative_reference_{style}_eval.txt")
     if output_path.exists() and not force:
         existing = read_lines(output_path)
